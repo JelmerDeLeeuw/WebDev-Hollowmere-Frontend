@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { API_URL } from './config';
+import './styles/App.less';
 
 function App() {
   useEffect(() => {
@@ -11,7 +12,7 @@ function App() {
 
   return (
     <div>
-        <h1>Test</h1>
+        <h1 className='title'>Test</h1>
     </div>
   );
 }
