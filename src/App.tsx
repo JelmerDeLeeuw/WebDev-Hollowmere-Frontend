@@ -1,11 +1,19 @@
-import './styles/App.less'
+import { useEffect } from 'react';
+import { API_URL } from './config';
 
 function App() {
-    return (
-        <>
-            <h1 className="title">HollowWere</h1>
-        </>
-    )
+  useEffect(() => {
+    fetch(`${API_URL}`)
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.error('Fout bij ophalen data:', err));
+  }, []);
+
+  return (
+    <div>
+        <h1>Test</h1>
+    </div>
+  );
 }
 
-export default App
+export default App;
