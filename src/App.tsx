@@ -1,19 +1,15 @@
-import { useEffect } from 'react';
-import { API_URL } from './config';
-import './styles/App.less';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Layout from './layouts/default';
+import Login from './pages/login';
 
 function App() {
-  useEffect(() => {
-    fetch(`${API_URL}`)
-      .then(res => res.json())
-      .then(data => console.log(data))
-      .catch(err => console.error('Fout bij ophalen data:', err));
-  }, []);
-
   return (
-    <div>
-        <h1 className='title'>Test</h1>
-    </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/pages/login" element={<Login />} />
+        <Route path="*" element={<Navigate to="/pages/login" />} />
+      </Route>
+    </Routes>
   );
 }
 

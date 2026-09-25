@@ -1,0 +1,29 @@
+.header-container {
+    top: 0;
+    display: grid;
+    grid-template-rows: auto auto;
+    
+    .upper-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background-color: var(--color-primary);
+        height: 100px;
+        width: 100%;
+
+        .logo-container {
+            justify-self: start;
+
+            .logo {
+                max-height: 100px;
+                max-width: 100px;
+            }
+        }
+
+    }
+
+    .lower-header {
+        background-color: var(--color-secondary);
+        height: 100px;
+        width: 100%;
+    }
+}
