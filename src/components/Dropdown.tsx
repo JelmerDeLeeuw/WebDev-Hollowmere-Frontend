@@ -1,4 +1,5 @@
 import '../styles/Dropdown.less';
+import Button from './Button';
 import { useState } from 'react';
 
 function Dropdown({options, onSelect, label="Jelmer de Leeuw"}){
@@ -9,17 +10,18 @@ function Dropdown({options, onSelect, label="Jelmer de Leeuw"}){
         setOpen(false);
     };
 
+    const toggle = () => {
+        setOpen(!open);
+    };   
+
 
     return (
         <div className="dropdown-container">
-            <button type="button" onClick={() => setOpen(!open)}>
-                {label}
-            </button>
-            
+            <Button title={label} icon="chevron-down" iconType="solid" onSelect={toggle} />
             {open && (
                 <ul className="dropdown-list">
                     {options.map((option) => (
-                        <li key={option.key} onClick={() => handleClick(option)}>
+                        <li className="dropdown-item" key={option.key} onClick={() => handleClick(option)}>
                             {option.label}
                         </li>
                     ))}
