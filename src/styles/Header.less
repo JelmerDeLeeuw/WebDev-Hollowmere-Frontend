@@ -37,5 +37,25 @@
         background-color: var(--color-secondary);
         height: 100px;
         width: 100%;
+        display: grid;
+        grid-template-columns: auto 1fr;
+            
+        .buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding-left: 20px;
+
+            .lower-header-button {
+                background-color: var(--color-footer);
+                padding: 0px;
+
+                .text-box {
+                    color: var(--color-primary);
+                }
+            }
+        }
     }
 }

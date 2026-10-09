@@ -1,5 +1,6 @@
 import '../styles/Header.less';
 import Dropdown from './Dropdown';
+import Button from './Button';
 import { useState } from 'react';
 
 function Header(){
@@ -25,7 +26,13 @@ function Header(){
             </div>
 
             <div className="lower-header">
-                <h1>Lower header</h1>
+                <div className="buttons">
+                    <Button className="lower-header-button" title="Armory"/>
+                    <Button className="lower-header-button" title="Arhive"/>
+                    <Button className="lower-header-button" title="Yard"/>
+                    <Button className="lower-header-button" title="Quests"/>
+                    <Button className="lower-header-button" title="Bestiary"/>
+                </div>
             </div>
         </div>        
     )
