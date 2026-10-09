@@ -14,8 +14,8 @@ function Login() {
   }, []);
 
   return (
-    <div>
-        <h1 className='title'>Login</h1>
+    <div className="login-container">
+       <h1 className='title'>Login</h1>
     </div>
   );
 }
