@@ -2,9 +2,9 @@ import '../styles/Button.less';
 import FontIcon from './FontIcon';
 
 
-function Button({title, icon, iconType, onSelect}) {
+function Button({title, icon, iconType, onSelect, className = ""}) {
     return (
-        <div className="button" onClick={onSelect}>
+        <div className={`button ${className}`} onClick={onSelect}>
             <div className="text-box">
                 <p>
                     {icon && <FontIcon name={icon} type={iconType} ></FontIcon>}

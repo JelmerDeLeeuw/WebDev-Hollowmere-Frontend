@@ -2,7 +2,7 @@ import '../styles/Dropdown.less';
 import Button from './Button';
 import { useState } from 'react';
 
-function Dropdown({options, onSelect, label="Jelmer de Leeuw"}){
+function Dropdown({options, onSelect, label="Jelmer de Leeuw", className = ""}){
     const [open, setOpen] = useState(false);
     
     const handleClick = (option) => {
@@ -16,7 +16,7 @@ function Dropdown({options, onSelect, label="Jelmer de Leeuw"}){
 
 
     return (
-        <div className="dropdown-container">
+        <div className={`dropdown-container ${className}`}>
             <Button title={label} icon="chevron-down" iconType="solid" onSelect={toggle} />
             {open && (
                 <ul className="dropdown-list">
