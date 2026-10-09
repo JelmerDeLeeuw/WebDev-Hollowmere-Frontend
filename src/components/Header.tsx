@@ -9,7 +9,8 @@ function Header(){
         { key: 1, value: 'createDrills', label: 'Create Drills' },
         { key: 2, value: 'editDrills', label: 'Edit Drills' },
         { key: 3, value: 'createGear', label: 'Create Gear' },
-        { key: 4, value: 'editGear', label: 'Edit Gear' }
+        { key: 4, value: 'editGear', label: 'Edit Gear' },
+        { key: 5, value: 'logOut', label: 'Logout'},
     ];
     
     return (
