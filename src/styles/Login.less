@@ -32,14 +32,14 @@
             display: grid;
             grid-template-rows: auto 1fr 1fr;
             align-items: center;
-            
+
             .header-container {
                 .title {
                     justify-self: center;
                     color: var(--color-primary);
                     margin: 10px 0px 0px 0px;
                 }
-                
+
                 .line {
                     width: 360px;
                     background-color: var(--color-primary);
@@ -47,15 +47,19 @@
                     border: none;
                 }
             }
-            
+
             .login-form {
                 justify-self: center;
-                
+
                 .login-username {
                     margin-bottom: 20px;
                 }
+
+                .error-message {
+                    color: var(--color-error);
+                }
             }
-            
+
             .buttons {
                 justify-self: center;
 

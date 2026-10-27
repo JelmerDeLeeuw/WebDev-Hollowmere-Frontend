@@ -1,14 +1,15 @@
 import '../styles/InputField.less';
 
-function InputField({label, isPassword, className = "" }) {
+function InputField({label, isPassword, className = "", onChange}) {
     
     return (
         <div className={`input-field ${className}`}>
-            <label className="label" for="input">{label}</label>
+            <label className="label" htmlFor="input">{label}</label>
             <input 
                 className="input" 
                 type={isPassword ? "password" : "text"} 
                 id="input" 
+                onChange={onChange} 
             />
         </div>
     )
