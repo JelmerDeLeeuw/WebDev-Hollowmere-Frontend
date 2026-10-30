@@ -2,6 +2,7 @@ import { useState } from 'react';
 import '../styles/Login.less';
 import InputField from '../components/InputField';
 import Button from '../components/Button';
+import Frame from '../components/Frame';
 import useUsers from '../hooks/useUsers';
 import useNavigation from '../hooks/useNavigation';
 
@@ -36,22 +37,20 @@ function Login() {
 
             <div className="main">
                 <div className="login-container">
-                    <div className="header-container">
-                        <h1 className="title">Login</h1>
-                        <hr className="line" />
-                    </div>
-                    <div className="login-form">
-                        {error && <p className='error-message'>Invalid username or password</p>}
-                        <div className="login-username">
-                            <InputField label="Username" isPassword={false} onChange={(e) => setUserName(e.target.value)}/>
+                    <Frame title="Login">
+                        <div className="login-form">
+                            {error && <p className='error-message'>Invalid username or password</p>}
+                            <div className="login-username">
+                                <InputField label="Username" isPassword={false} onChange={(e) => setUserName(e.target.value)}/>
+                            </div>
+                            <div className="login-password">
+                                <InputField label="Password" isPassword={true} onChange={(e) => setPassword(e.target.value)}/>
+                            </div>
                         </div>
-                        <div className="login-password">
-                            <InputField label="Password" isPassword={true} onChange={(e) => setPassword(e.target.value)}/>
+                        <div className="buttons">
+                            <Button title="Login" className="login-button" onSelect={submit}/>
                         </div>
-                    </div>
-                    <div className="buttons">
-                        <Button title="Login" className="login-button" onSelect={submit}/>
-                    </div>
+                    </Frame>
                 </div>
             </div>
         </div>
