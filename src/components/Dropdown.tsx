@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 function Dropdown({options, onSelect, label="Jelmer de Leeuw", className = ""}){
     const [open, setOpen] = useState(false);
-    
+
     const handleClick = (option) => {
         onSelect(option.value);
         setOpen(false);
@@ -12,7 +12,7 @@ function Dropdown({options, onSelect, label="Jelmer de Leeuw", className = ""}){
 
     const toggle = () => {
         setOpen(!open);
-    };   
+    };
 
 
     return (
