@@ -13,21 +13,29 @@ function Login() {
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
-    async function submit () {
-        try {
-            const response = await login({ username, password});
-
-            if (response?.token) {
-                localStorage.setItem('token', response.token);
-                goTo('home');
-            }
-        } catch (e) {
-            console.log(e);
+    const keyDown = (event) => {
+        if(event.key === "Enter") {
+            submit();
         }
     }
 
+    async function submit() {
+        try {
+            const response = await login({ username, password });
+
+            if (response?.token) {
+                sessionStorage.setItem('token', response.token);
+                goTo('home');
+            } else {
+                console.log('Geen token ontvangen');
+            }
+        } catch (e) {
+            console.log('Login error:', e);
+        }
+    }
+           
     return (
-        <div className="login-page">
+        <div className="login-page" onKeyDown={keyDown}>
             <div className="header-login-container">
                 <div className="logo-container">
                     <img src="/images/logo.png" alt="Logo" className="logo" />
