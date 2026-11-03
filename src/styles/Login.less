@@ -16,37 +16,15 @@
             }
         }
     }
-
     .main {
         flex: 1;
         display: flex;
         align-items: center;
         justify-content: center;
-
+        
         .login-container {
-            background-color: var(--color-footer);
             width: 400px;
-            max-width: 90%;
-            height: 400px;
-            border-radius: 5px;
-            display: grid;
-            grid-template-rows: auto 1fr 1fr;
-            align-items: center;
-
-            .header-container {
-                .title {
-                    justify-self: center;
-                    color: var(--color-primary);
-                    margin: 10px 0px 0px 0px;
-                }
-
-                .line {
-                    width: 360px;
-                    background-color: var(--color-primary);
-                    height: 1px;
-                    border: none;
-                }
-            }
+            height: 300px;
 
             .login-form {
                 justify-self: center;
@@ -61,14 +39,15 @@
             }
 
             .buttons {
+                margin-top: 20px;
                 justify-self: center;
 
                 .login-button {
                     background-color: var(--color-primary);
                     height: 40px;
                     width: 80px;
-                }
-            }   
+                }   
+            }
         }
-    }
+    }   
 }
