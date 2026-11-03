@@ -12,7 +12,7 @@ export default function useNavigation() {
         const route = routes.find(r => r.name === name);
         if (!route) return;
 
-        const token = localStorage.getItem('token');
+        const token = sessionStorage.getItem('token');
         const search = token ? `?${new URLSearchParams({ jwt: token })}` : '';
         navigate(`${route.path}${search}`);
     };
