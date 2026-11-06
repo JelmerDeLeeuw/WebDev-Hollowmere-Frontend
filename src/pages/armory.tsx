@@ -1,5 +1,6 @@
 import '../styles/Armory.less';
 import useArmory from '../hooks/useArmory';
+import useAuth from '../hooks/useAuth';
 import { useEffect } from 'react';
 
 function Armory() {
@@ -8,9 +9,6 @@ function Armory() {
     useEffect(() => {
         fetchArmory();
     }, []);
-    
-
-    console.log(armoryItems);
 
     return (
         <div className="armory-page">

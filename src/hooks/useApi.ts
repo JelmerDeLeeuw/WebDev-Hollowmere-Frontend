@@ -1,8 +1,10 @@
 import { useState } from "react";
+import useAuth from './useAuth.ts';
 
 let abortController: AbortController | null = null;
 
 export function useApi() {
+    const { jwt } = useAuth();
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -18,6 +20,9 @@ export function useApi() {
         try {
             const response = await fetch(fetchUrl, {
                 signal: abortController.signal,
+                headers: {
+                    Authorization: `Bearer ${jwt}`
+                }
             });
             const json = await response.json();
             setData(json);
@@ -35,7 +40,10 @@ export function useApi() {
         try {
             const response = await fetch(postUrl, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: { 
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${jwt}` 
+                },
                 body: JSON.stringify(data),
             });
             if (!response.ok) {
