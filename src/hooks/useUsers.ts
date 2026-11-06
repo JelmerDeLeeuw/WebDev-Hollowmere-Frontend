@@ -7,11 +7,15 @@ export default function useUsers() {
         password: string;
     };
 
-    const { loading, error, sendData } = useApi();
+    const { loading, error, data, fetchData, sendData } = useApi();
+
+    const fetchUser = (id: number) => {
+        fetchData(`/api/users/${id}`);
+    }
 
     async function login (inputData: LoginData) {
         return sendData("/api/users/login", inputData);
     }
 
-    return { login, error, loading }
+    return { login, error, loading, fetchUser, userItem: data }
 }
