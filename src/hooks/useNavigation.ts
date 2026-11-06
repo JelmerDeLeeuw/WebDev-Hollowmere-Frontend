@@ -6,6 +6,7 @@ export default function useNavigation() {
     const routes = [
         { name: 'home', path: '/pages/home' },
         { name: 'login', path: '/pages/login' },
+        { name: 'armory', path: '/pages/armory'},
     ];
 
     const goTo = (name: string) => {

@@ -2,8 +2,10 @@ import '../styles/Header.less';
 import Dropdown from './Dropdown';
 import Button from './Button';
 import { useState } from 'react';
+import useNavigation from '../hooks/useNavigation';
 
-function Header(){
+function Header() {
+    const { goTo } = useNavigation();
     const [chosen, setChosen] = useState("");    
 
     const dropdownItems = [
@@ -27,7 +29,11 @@ function Header(){
 
             <div className="lower-header">
                 <div className="buttons">
-                    <Button className="lower-header-button" title="Armory"/>
+                    <Button 
+                        className="lower-header-button" 
+                        title="Armory" 
+                        onSelect={() => goTo('armory')}
+                    />
                     <Button className="lower-header-button" title="Arhive"/>
                     <Button className="lower-header-button" title="Yard"/>
                     <Button className="lower-header-button" title="Quests"/>

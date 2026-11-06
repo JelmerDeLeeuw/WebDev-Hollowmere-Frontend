@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './layouts/default';
 import Login from './pages/login';
 import Home from './pages/home';
+import Armory from './pages/armory';
 import ProtectedRoute from './components/ProtectRoute';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
 
         <Route element={<ProtectedRoute />}>
           <Route path="/pages/home" element={<Home />} />
+          <Route path="/pages/armory" element={<Armory />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/pages/home" replace />} />
