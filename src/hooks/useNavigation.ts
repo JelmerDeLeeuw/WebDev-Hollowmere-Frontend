@@ -7,6 +7,7 @@ export default function useNavigation() {
         { name: 'home', path: '/pages/home' },
         { name: 'login', path: '/pages/login' },
         { name: 'armory', path: '/pages/armory'},
+        { name: 'member', path: '/pages/member'}
     ];
 
     const goTo = (name: string) => {
