@@ -1,6 +1,7 @@
 import '../styles/Armory.less';
 import useArmory from '../hooks/useArmory';
-import useAuth from '../hooks/useAuth';
+import Frame from '../components/Frame';
+import ItemCard from '../components/ItemCard';
 import { useEffect } from 'react';
 
 function Armory() {
@@ -14,7 +15,13 @@ function Armory() {
         <div className="armory-page">
             <div className="main">
                 <div className="armory-container">
-                    <h1>Ik word aangeroepen</h1>
+                    <Frame title="Armory">
+                        <div className="armory-items-container">
+                            {/* {armoryItems.map((item) => (
+                                <ItemCard item={item} hasImage={true} hasButton={true}/>
+                            ))} */}
+                        </div>
+                    </Frame>
                 </div>
             </div>
         </div>
