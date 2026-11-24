@@ -1,10 +1,11 @@
 import '../../styles/ItemCardArmory.less';
 import Button from '../../components/Button';
 import notFoundImg from '../../assets/notfound.png';
+import type ArmoryItem from '../../types/ArmoryItem';
 
 type Props = {
-    item: any;
-    onBorrow: (item: any) => void;
+    item: ArmoryItem;
+    onBorrow: (item: ArmoryItem) => void;
 }
 
 function ItemCardArmory(props: Props) {

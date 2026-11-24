@@ -4,6 +4,7 @@ import useArmory from '../hooks/useArmory';
 import Frame from '../components/Frame';
 import ItemCardArmory from '../components/ItemCards/ItemCardArmory';
 import { useEffect } from 'react';
+import type { ArmoryItem } from '../types/ArmoryItem';
 
 function Armory() {
     const { fetchArmory, armoryItems, borrow } = useArmory();
@@ -14,7 +15,7 @@ function Armory() {
     }, [submitted]);
 
 
-    async function handleBorrow(item: any) {
+    async function handleBorrow(item: ArmoryItem) {
         try {
             const response = await borrow(item);
 
