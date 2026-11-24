@@ -20,7 +20,7 @@ function Header() {
         <div className="header-container">
             <div className="upper-header">
                 <div className="logo-container">
-                    <img src="/images/logo.png" alt="Logo" className="logo" />
+                    <img src="/src/assets/logo.png" alt="Logo" className="logo" />
                 </div>
                 <div className="dropdown-container">
                     <Dropdown options={dropdownItems} onSelect={setChosen} />

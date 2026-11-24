@@ -1,15 +1,30 @@
+import { useState } from 'react';
 import '../styles/Armory.less';
 import useArmory from '../hooks/useArmory';
 import Frame from '../components/Frame';
-import ItemCard from '../components/ItemCard';
+import ItemCardArmory from '../components/ItemCards/ItemCardArmory';
 import { useEffect } from 'react';
 
 function Armory() {
-    const { fetchArmory, armoryItems } = useArmory();
+    const { fetchArmory, armoryItems, borrow } = useArmory();
+    const [submitted, setSubmitted] = useState(false);
 
     useEffect(() => {
         fetchArmory();
-    }, []);
+    }, [submitted]);
+
+
+    async function handleBorrow(item: any) {
+        try {
+            const response = await borrow(item);
+
+            if(response) {
+                setSubmitted(true);
+            }
+        } catch(e) {
+            console.log(e);
+        }
+    }
 
     return (
         <div className="armory-page">
@@ -17,9 +32,9 @@ function Armory() {
                 <div className="armory-container">
                     <Frame title="Armory">
                         <div className="armory-items-container">
-                            {/* {armoryItems.map((item) => (
-                                <ItemCard item={item} hasImage={true} hasButton={true}/>
-                            ))} */}
+                            {armoryItems.map((item) => (
+                                <ItemCardArmory key={item.id} item={item} onBorrow={handleBorrow}/>
+                            ))}
                         </div>
                     </Frame>
                 </div>
