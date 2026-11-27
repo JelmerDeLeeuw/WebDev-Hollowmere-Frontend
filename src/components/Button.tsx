@@ -1,14 +1,22 @@
 import '../styles/Button.less';
 import FontIcon from './FontIcon';
 
+type Props = {
+    title: string;
+    icon?: string;
+    iconType?: string;
+    onSelect: (item: any) => void;
+    className?: string;
+}
 
-function Button({title, icon, iconType, onSelect, className = ""}) {
+
+function Button(props: Props) {
     return (
-        <button className={`button ${className}`} onClick={onSelect}>
+        <button className={`button ${props.className}`} onClick={props.onSelect}>
             <div className="text-box">
                 <p>
-                    {icon && <FontIcon name={icon} type={iconType} ></FontIcon>}
-                    {title}
+                    {props.icon && <FontIcon name={props.icon} type={props.iconType} ></FontIcon>}
+                    {props.title}
                 </p>
             </div>        
         </button>
