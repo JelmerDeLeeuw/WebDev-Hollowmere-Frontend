@@ -140,6 +140,7 @@ function Member ()
                         </div>
                     </Frame>
                 </div>
+
                 <div className="table-container">
                     <div className="draft-reports-container">
                         <Frame title = "Draft reports">
@@ -147,19 +148,6 @@ function Member ()
                                 <Table 
                                     headers={["Date", "Name", "Region", ""]} 
                                     rows={dataDrafts}
-                                    showButton= {true}
-                                    buttonLabel= "Edit">
-                                </Table>
-                            </div>
-                        </Frame>
-                    </div>
-
-                    <div className="drills-container">
-                        <Frame title = "Drills">
-                            <div className= "drills-table-container">
-                                <Table 
-                                    headers={["Date", "Title", "Gear", ""]} 
-                                    rows={dataDrills}
                                     showButton= {true}
                                     buttonLabel= "Edit">
                                 </Table>
@@ -175,6 +163,19 @@ function Member ()
                                     rows={dataBorrow}
                                     showButton= {true}
                                     buttonLabel= "Return"/>
+                            </div>
+                        </Frame>
+                    </div>
+
+                    <div className="drills-container">
+                        <Frame title = "Drills">
+                            <div className= "drills-table-container">
+                                <Table 
+                                    headers={["Date", "Title", "Gear", ""]} 
+                                    rows={dataDrills}
+                                    showButton= {true}
+                                    buttonLabel= "Edit">
+                                </Table>
                             </div>
                         </Frame>
                     </div>
