@@ -1,29 +1,48 @@
+
 import "../styles/Table.less";
 import Button from "./Button";
 
-function Table({ columns, data, showButton = false, buttonLabel = "", action = null}) {
+type Props = {
+  rows: any[];
+  headers: string[];
+  showButton?: boolean;
+  buttonLabel?: string;
+  action?: (item: any) => void;
+};
 
-  const gridColumns = `repeat(${columns.length}, auto)`;
+function Table(props: Props) {
   return (
-    <table className="table" style={{ gridTemplateColumns: gridColumns }}>
+    <table className="table">
       <thead className="table-header">
         <tr className="table-header-row">
-          {columns.map((column) => (
-            <th className="table-header-data" key={column.key}>{column.label}</th>
+          {props.headers.map((header, index) => (
+            <th key={index} className="table-header-data" colSpan={1}>
+              {header}
+            </th>
           ))}
         </tr>
       </thead>
 
       <tbody className="table-body">
-        {data.map((row, index) => (
-          <tr className="table-row" key={row.id ?? index}>
-            {columns.map((column, columnIndex) => (
-              <td className="table-data" key={column.key}>
-                { showButton && columnIndex === columns.length - 1 ? 
-                  (<Button className="row-button" title={buttonLabel} onSelect={() => action?.(row)}/>) : (row[column.key])
-                }
+        {props.rows.map((row, index) => (
+          <tr className="table-row" key={`${row.id}-${index}`}>
+            {row.values.map((cell, cellIndex) => (
+              <td key={cellIndex} className="table-data" style={{gridColumn: `span ${cell.colspan ?? 1}`}}>
+                {cell.label && (
+                  <span>{cell.label}</span>
+                )}
               </td>
             ))}
+
+            {props.showButton && (
+              <td key="action" className="table-data">
+                <Button
+                  className="row-button"
+                  title={props.buttonLabel ?? ""}
+                  onSelect={() => props.action?.(row)}
+                />
+              </td>
+            )}
           </tr>
         ))}
       </tbody>
