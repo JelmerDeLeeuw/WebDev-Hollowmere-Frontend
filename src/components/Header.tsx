@@ -34,7 +34,11 @@ function Header() {
                         title="Armory" 
                         onSelect={() => goTo('armory')}
                     />
-                    <Button className="lower-header-button" title="Arhive"/>
+                    <Button 
+                        className="lower-header-button" 
+                        title="Archive"
+                        onSelect={() => goTo('archive')}
+                    />
                     <Button className="lower-header-button" title="Yard"/>
                     <Button className="lower-header-button" title="Quests"/>
                     <Button className="lower-header-button" title="Bestiary"/>
