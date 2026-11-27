@@ -2,11 +2,19 @@ import '../styles/Dropdown.less';
 import Button from './Button';
 import { useState } from 'react';
 
-function Dropdown({options, onSelect, label="Jelmer de Leeuw", className = ""}){
+type Props = {
+    options: any[];
+    onSelect: (item: any) => void;
+    label: string;
+    className?: string;
+}
+
+
+function Dropdown(props: Props){
     const [open, setOpen] = useState(false);
 
     const handleClick = (option) => {
-        onSelect(option.value);
+        props.onSelect(option.value);
         setOpen(false);
     };
 
@@ -16,11 +24,11 @@ function Dropdown({options, onSelect, label="Jelmer de Leeuw", className = ""}){
 
 
     return (
-        <div className={`dropdown-container ${className}`}>
-            <Button title={label} icon="chevron-down" iconType="solid" onSelect={toggle} />
+        <div className={`dropdown-container ${props.className}`}>
+            <Button title={props.label} icon="chevron-down" iconType="solid" onSelect={toggle} />
             {open && (
                 <ul className="dropdown-list">
-                    {options.map((option) => (
+                    {props.options.map((option) => (
                         <li className="dropdown-item" key={option.key} onClick={() => handleClick(option)}>
                             {option.label}
                         </li>

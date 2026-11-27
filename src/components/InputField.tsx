@@ -1,15 +1,22 @@
 import '../styles/InputField.less';
 
-function InputField({label, isPassword, className = "", onChange}) {
+type Props = {
+    label?: string;
+    isPassword: boolean;
+    className?:string;
+    onChange: () => void;
+}
+
+function InputField(props: Props) {
     
     return (
-        <div className={`input-field ${className}`}>
-            <label className="label" htmlFor="input">{label}</label>
+        <div className={`input-field ${props.className}`}>
+            <label className="label" htmlFor="input">{props.label}</label>
             <input 
                 className="input" 
-                type={isPassword ? "password" : "text"} 
+                type={props.isPassword ? "password" : "text"} 
                 id="input" 
-                onChange={onChange} 
+                onChange={props.onChange} 
             />
         </div>
     )

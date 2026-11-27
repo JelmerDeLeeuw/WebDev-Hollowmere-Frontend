@@ -1,9 +1,14 @@
 import '../styles/FontIcon.less';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-function FontIcon({name, type}){
+type Props = {
+    name: string;
+    type: string;
+}
+
+function FontIcon(props: Props){
     return (
-        <i className={`fa-${type} fa-${name} icon`}></i>
+        <i className={`fa-${props.type} fa-${props.name} icon`}></i>
     );
 }
 

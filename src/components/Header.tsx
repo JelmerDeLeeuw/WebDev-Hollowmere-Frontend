@@ -23,7 +23,7 @@ function Header() {
                     <img src="/src/assets/logo.png" alt="Logo" className="logo" />
                 </div>
                 <div className="dropdown-container">
-                    <Dropdown options={dropdownItems} onSelect={setChosen} />
+                    <Dropdown label="Jelmer de Leeuw" options={dropdownItems} onSelect={setChosen} />
                 </div>
             </div>
 
