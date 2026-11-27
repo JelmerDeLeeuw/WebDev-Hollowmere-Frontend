@@ -39,7 +39,7 @@ function Login() {
         <div className="login-page" onKeyDown={keyDown}>
             <div className="header-login-container">
                 <div className="logo-container">
-                    <img src="/images/logo.png" alt="Logo" className="logo" />
+                    <img src="/src/assets/logo.png" alt="Logo" className="logo" />
                 </div>
             </div>
 
